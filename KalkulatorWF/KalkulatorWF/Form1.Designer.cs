@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.ResultWindow = new System.Windows.Forms.TextBox();
-            this.buttonMod = new System.Windows.Forms.Button();
+            this.buttonPlusMinus = new System.Windows.Forms.Button();
             this.buttonCE = new System.Windows.Forms.Button();
             this.buttonC = new System.Windows.Forms.Button();
             this.buttonPlus = new System.Windows.Forms.Button();
@@ -48,11 +48,12 @@
             this.buttonMinus = new System.Windows.Forms.Button();
             this.button0 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.buttonMod = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ResultWindow
             // 
-            this.ResultWindow.Font = new System.Drawing.Font("Segoe UI", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ResultWindow.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ResultWindow.Location = new System.Drawing.Point(12, 12);
             this.ResultWindow.Margin = new System.Windows.Forms.Padding(5);
             this.ResultWindow.Multiline = true;
@@ -62,15 +63,16 @@
             this.ResultWindow.Text = "0";
             this.ResultWindow.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // buttonMod
+            // buttonPlusMinus
             // 
-            this.buttonMod.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonMod.Location = new System.Drawing.Point(11, 116);
-            this.buttonMod.Name = "buttonMod";
-            this.buttonMod.Size = new System.Drawing.Size(136, 65);
-            this.buttonMod.TabIndex = 1;
-            this.buttonMod.Text = "Modulo";
-            this.buttonMod.UseVisualStyleBackColor = true;
+            this.buttonPlusMinus.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonPlusMinus.Location = new System.Drawing.Point(11, 116);
+            this.buttonPlusMinus.Name = "buttonPlusMinus";
+            this.buttonPlusMinus.Size = new System.Drawing.Size(66, 65);
+            this.buttonPlusMinus.TabIndex = 1;
+            this.buttonPlusMinus.Text = "+/-";
+            this.buttonPlusMinus.UseVisualStyleBackColor = true;
+            this.buttonPlusMinus.Click += new System.EventHandler(this.buttonPlusMinus_Click);
             // 
             // buttonCE
             // 
@@ -112,7 +114,7 @@
             this.button7.TabIndex = 1;
             this.button7.Text = "7";
             this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.button7.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // button9
             // 
@@ -123,7 +125,7 @@
             this.button9.TabIndex = 1;
             this.button9.Text = "9";
             this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.button9.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // buttonDivide
             // 
@@ -154,7 +156,7 @@
             this.button4.TabIndex = 1;
             this.button4.Text = "4";
             this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button4.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // button5
             // 
@@ -165,7 +167,7 @@
             this.button5.TabIndex = 1;
             this.button5.Text = "5";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.button5.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // button6
             // 
@@ -176,7 +178,7 @@
             this.button6.TabIndex = 1;
             this.button6.Text = "6";
             this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.button6.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // buttonMultiply
             // 
@@ -197,6 +199,7 @@
             this.buttonDot.TabIndex = 1;
             this.buttonDot.Text = ".";
             this.buttonDot.UseVisualStyleBackColor = true;
+            this.buttonDot.Click += new System.EventHandler(this.buttonDot_Click);
             // 
             // button1
             // 
@@ -207,7 +210,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "1";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // button2
             // 
@@ -218,7 +221,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "2";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // button3
             // 
@@ -229,7 +232,7 @@
             this.button3.TabIndex = 1;
             this.button3.Text = "3";
             this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.button3.Click += new System.EventHandler(this.NumberButton_Click);
             // 
             // buttonMinus
             // 
@@ -261,7 +264,17 @@
             this.button8.TabIndex = 1;
             this.button8.Text = "8";
             this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.button8.Click += new System.EventHandler(this.NumberButton_Click);
+            // 
+            // buttonMod
+            // 
+            this.buttonMod.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonMod.Location = new System.Drawing.Point(82, 116);
+            this.buttonMod.Name = "buttonMod";
+            this.buttonMod.Size = new System.Drawing.Size(66, 65);
+            this.buttonMod.TabIndex = 1;
+            this.buttonMod.Text = "%";
+            this.buttonMod.UseVisualStyleBackColor = true;
             // 
             // KalkulatorWindow
             // 
@@ -288,6 +301,7 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button7);
             this.Controls.Add(this.buttonMod);
+            this.Controls.Add(this.buttonPlusMinus);
             this.Controls.Add(this.ResultWindow);
             this.MaximizeBox = false;
             this.Name = "KalkulatorWindow";
@@ -300,7 +314,7 @@
         #endregion
 
         private TextBox ResultWindow;
-        private Button buttonMod;
+        private Button buttonPlusMinus;
         private Button buttonCE;
         private Button buttonC;
         private Button buttonPlus;
@@ -319,5 +333,6 @@
         private Button buttonMinus;
         private Button button0;
         private Button button8;
+        private Button buttonMod;
     }
 }
