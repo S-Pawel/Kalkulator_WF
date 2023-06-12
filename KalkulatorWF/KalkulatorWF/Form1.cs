@@ -86,15 +86,12 @@ namespace KalkulatorWF
         {
 
             previousValue = Convert.ToSingle(ResultWindow.Text);
+            ResultWindow.Text = "0";
             Button button = (Button)sender;
             operatingChar = button.Text;
 
-            ResultWindow.Text = "0";
-            if(result != 0)
-            {
-                result = previousValue;
-                buttonEqual_Click(null, null);
-            }
+           
+            
         }
 
         public void buttonEqual_Click(object sender, EventArgs e)
@@ -114,7 +111,18 @@ namespace KalkulatorWF
             }
             else if (operatingChar == "÷")
             {
-                result = previousValue / laterValue;
+                if (laterValue != 0)
+                {
+                    result = previousValue / laterValue;
+                }
+                else
+                {
+                    ResultWindow.Text = "Nie dzielimy przez 0";
+                }
+            }
+            else if (operatingChar == "%")
+            {
+                result = previousValue % laterValue;
             }
             ResultWindow.Text = result.ToString();
         }
