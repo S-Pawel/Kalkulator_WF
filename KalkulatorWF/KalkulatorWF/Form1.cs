@@ -111,7 +111,10 @@ namespace KalkulatorWF
                     }
                     break;
                 case "%":
-                    result = previousValue % laterValue;
+                    if (laterValue != 0)
+                    {
+                        result = previousValue % laterValue;
+                    }
                     break;
             }
             ChaningResult();
