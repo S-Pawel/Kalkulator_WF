@@ -109,6 +109,10 @@ namespace KalkulatorWF
                     {
                         result = previousValue / laterValue;
                     }
+                    else
+                    {
+                        MessageBox.Show("Nie mo¿na dzieliæ przez 0!");
+                    }
                     break;
                 case "%":
                     if (laterValue != 0)
