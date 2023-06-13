@@ -72,7 +72,7 @@
             this.buttonPlusMinus.TabIndex = 1;
             this.buttonPlusMinus.Text = "+/-";
             this.buttonPlusMinus.UseVisualStyleBackColor = true;
-            this.buttonPlusMinus.Click += new System.EventHandler(this.buttonPlusMinus_Click);
+            this.buttonPlusMinus.Click += new System.EventHandler(this.ButtonPlusMinus_Click);
             // 
             // buttonCE
             // 
@@ -83,7 +83,7 @@
             this.buttonCE.TabIndex = 1;
             this.buttonCE.Text = "CE";
             this.buttonCE.UseVisualStyleBackColor = true;
-            this.buttonCE.Click += new System.EventHandler(this.buttonCE_Click);
+            this.buttonCE.Click += new System.EventHandler(this.ButtonCE_Click);
             // 
             // buttonC
             // 
@@ -94,7 +94,7 @@
             this.buttonC.TabIndex = 1;
             this.buttonC.Text = "C";
             this.buttonC.UseVisualStyleBackColor = true;
-            this.buttonC.Click += new System.EventHandler(this.buttonC_Click);
+            this.buttonC.Click += new System.EventHandler(this.ButtonC_Click);
             // 
             // buttonPlus
             // 
@@ -105,7 +105,7 @@
             this.buttonPlus.TabIndex = 1;
             this.buttonPlus.Text = "+";
             this.buttonPlus.UseVisualStyleBackColor = true;
-            this.buttonPlus.Click += new System.EventHandler(this.buttonOperating_Click);
+            this.buttonPlus.Click += new System.EventHandler(this.ButtonOperating_Click);
             // 
             // button7
             // 
@@ -138,7 +138,7 @@
             this.buttonDivide.TabIndex = 1;
             this.buttonDivide.Text = "÷";
             this.buttonDivide.UseVisualStyleBackColor = true;
-            this.buttonDivide.Click += new System.EventHandler(this.buttonOperating_Click);
+            this.buttonDivide.Click += new System.EventHandler(this.ButtonOperating_Click);
             // 
             // buttonEqual
             // 
@@ -149,7 +149,7 @@
             this.buttonEqual.TabIndex = 1;
             this.buttonEqual.Text = "=";
             this.buttonEqual.UseVisualStyleBackColor = true;
-            this.buttonEqual.Click += new System.EventHandler(this.buttonEqual_Click);
+            this.buttonEqual.Click += new System.EventHandler(this.ButtonEqual_Click);
             // 
             // button4
             // 
@@ -193,7 +193,7 @@
             this.buttonMultiply.TabIndex = 1;
             this.buttonMultiply.Text = "×";
             this.buttonMultiply.UseVisualStyleBackColor = true;
-            this.buttonMultiply.Click += new System.EventHandler(this.buttonOperating_Click);
+            this.buttonMultiply.Click += new System.EventHandler(this.ButtonOperating_Click);
             // 
             // buttonDot
             // 
@@ -204,7 +204,7 @@
             this.buttonDot.TabIndex = 1;
             this.buttonDot.Text = ",";
             this.buttonDot.UseVisualStyleBackColor = true;
-            this.buttonDot.Click += new System.EventHandler(this.buttonDot_Click);
+            this.buttonDot.Click += new System.EventHandler(this.ButtonComma_Click);
             // 
             // button1
             // 
@@ -248,7 +248,7 @@
             this.buttonMinus.TabIndex = 1;
             this.buttonMinus.Text = "-";
             this.buttonMinus.UseVisualStyleBackColor = true;
-            this.buttonMinus.Click += new System.EventHandler(this.buttonOperating_Click);
+            this.buttonMinus.Click += new System.EventHandler(this.ButtonOperating_Click);
             // 
             // button0
             // 
@@ -259,7 +259,7 @@
             this.button0.TabIndex = 1;
             this.button0.Text = "0";
             this.button0.UseVisualStyleBackColor = true;
-            this.button0.Click += new System.EventHandler(this.button0_Click);
+            this.button0.Click += new System.EventHandler(this.Button0_Click);
             // 
             // button8
             // 
@@ -281,7 +281,7 @@
             this.buttonMod.TabIndex = 1;
             this.buttonMod.Text = "%";
             this.buttonMod.UseVisualStyleBackColor = true;
-            this.buttonMod.Click += new System.EventHandler(this.buttonOperating_Click);
+            this.buttonMod.Click += new System.EventHandler(this.ButtonOperating_Click);
             // 
             // label1
             // 
@@ -291,9 +291,9 @@
             this.label1.ForeColor = System.Drawing.SystemColors.AppWorkspace;
             this.label1.Location = new System.Drawing.Point(14, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 28);
+            this.label1.Size = new System.Drawing.Size(32, 28);
             this.label1.TabIndex = 2;
-            this.label1.Text = "_ _ _ _ ";
+            this.label1.Text = "_,_";
             // 
             // KalkulatorWindow
             // 

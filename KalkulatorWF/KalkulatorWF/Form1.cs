@@ -4,10 +4,9 @@ namespace KalkulatorWF
 {
     public partial class KalkulatorWindow : Form
     {
-        private const int maxResultLength = 16;
-        private float previousValue = 0;
-        private float laterValue = 0;
-        private float result = 0;
+        private decimal previousValue = 0.0m;
+        private decimal laterValue = 0.0m;
+        private decimal result = 0.0m;
         private string operatingChar = "";
 
         public KalkulatorWindow()
@@ -15,7 +14,10 @@ namespace KalkulatorWF
             InitializeComponent();
 
         }
-
+        private void ChaningResult()
+        {
+            label1.Text = result.ToString();
+        }
 
         private void NumberButton_Click(object sender, EventArgs e)
         {
@@ -27,34 +29,37 @@ namespace KalkulatorWF
             Button button = (Button)sender;
             string number = button.Text;
             ResultWindow.Text += number;
+            ChaningResult();
         }
-        private void button0_Click(object sender, EventArgs e)
+        private void Button0_Click(object sender, EventArgs e)
         {
             if (ResultWindow.Text != "0")
             {
                 ResultWindow.Text = ResultWindow.Text + "0";
             };
+            ChaningResult();
         }
 
-        private void buttonCE_Click(object sender, EventArgs e)
+        private void ButtonCE_Click(object sender, EventArgs e)
         {
             ResultWindow.Text = "0";
             previousValue = 0;
             laterValue = 0;
             result = 0;
             operatingChar = "";
-
+            ChaningResult();
         }
 
-        private void buttonDot_Click(object sender, EventArgs e)
+        private void ButtonComma_Click(object sender, EventArgs e)
         {
             if (!ResultWindow.Text.Contains(","))
             {
                 ResultWindow.Text += ",";
             }
+            ChaningResult();
         }
 
-        private void buttonPlusMinus_Click(object sender, EventArgs e)
+        private void ButtonPlusMinus_Click(object sender, EventArgs e)
         {
             if (ResultWindow.Text.Contains("-") && ResultWindow.Text != "0")
             {
@@ -64,9 +69,10 @@ namespace KalkulatorWF
             {
                 ResultWindow.Text = "-" + ResultWindow.Text;
             }
+            ChaningResult();
         }
 
-        private void buttonC_Click(object sender, EventArgs e)
+        private void ButtonC_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(ResultWindow.Text) && ResultWindow.Text != "0")
             {
@@ -80,44 +86,66 @@ namespace KalkulatorWF
             {
                 ResultWindow.Text = "0";
             }
+            ChaningResult();
         }
 
-        private void buttonOperating_Click(object sender, EventArgs e)
+
+        private void PerformCalculation()
+        {
+            laterValue = (decimal)Convert.ToSingle(ResultWindow.Text);
+            switch (operatingChar)
+            {
+                case "+":
+                    result = previousValue + laterValue;
+                    break;
+                case "-":
+                    result = previousValue - laterValue;
+                    break;
+                case "×":
+                    result = previousValue * laterValue;
+                    break;
+                case "÷":
+                    if (laterValue != 0)
+                    {
+                        result = previousValue / laterValue;
+                    }
+                    break;
+                case "%":
+                    result = previousValue % laterValue;
+                    break;
+            }
+            ChaningResult();
+        }
+
+        private void ButtonOperating_Click(object sender, EventArgs e)
         {
 
-            previousValue = Convert.ToSingle(ResultWindow.Text);
-            Button button = (Button)sender;
-            operatingChar = button.Text;
+            PerformCalculation();
+
+            if (result != 0)
+            {
+                previousValue = result;
+            }
+            else
+            {
+                previousValue = (decimal)Convert.ToSingle(ResultWindow.Text);
+            }
 
             ResultWindow.Text = "0";
-            if(result != 0)
-            {
-                result = previousValue;
-                buttonEqual_Click(null, null);
-            }
+            Button button = (Button)sender;
+            operatingChar = button.Text;
+            ChaningResult();
         }
 
-        public void buttonEqual_Click(object sender, EventArgs e)
+        public void ButtonEqual_Click(object sender, EventArgs e)
         {
-            laterValue = Convert.ToSingle(ResultWindow.Text);
-            if (operatingChar == "+")
-            {
-                result = previousValue + laterValue;
-            }
-            else if (operatingChar == "-")
-            {
-                result = previousValue - laterValue;
-            }
-            else if (operatingChar == "×")
-            {
-                result = previousValue * laterValue;
-            }
-            else if (operatingChar == "÷")
-            {
-                result = previousValue / laterValue;
-            }
+            PerformCalculation();
             ResultWindow.Text = result.ToString();
+            ChaningResult();
+            previousValue = 0;
+            laterValue = 0;
         }
+
     }
 
 }
