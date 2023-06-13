@@ -4,9 +4,9 @@ namespace KalkulatorWF
 {
     public partial class KalkulatorWindow : Form
     {
-        private float previousValue = 0;
-        private float laterValue = 0;
-        private float result = 0;
+        private decimal previousValue = 0.0m;
+        private decimal laterValue = 0.0m;
+        private decimal result = 0.0m;
         private string operatingChar = "";
 
         public KalkulatorWindow()
@@ -92,43 +92,43 @@ namespace KalkulatorWF
 
         private void PerformCalculation()
         {
-            laterValue = Convert.ToSingle(ResultWindow.Text);
-            if (operatingChar == "+")
+            laterValue = (decimal)Convert.ToSingle(ResultWindow.Text);
+            switch (operatingChar)
             {
-                result = previousValue + laterValue;
-            }
-            else if (operatingChar == "-")
-            {
-                result = previousValue - laterValue;
-            }
-            else if (operatingChar == "×")
-            {
-                result = previousValue * laterValue;
-            }
-            else if (operatingChar == "÷")
-            {
-                if (laterValue != 0)
-                {
-                    result = previousValue / laterValue;
-                }
-            }
-            else if (operatingChar == "%")
-            {
-                result = previousValue % laterValue;
+                case "+":
+                    result = previousValue + laterValue;
+                    break;
+                case "-":
+                    result = previousValue - laterValue;
+                    break;
+                case "×":
+                    result = previousValue * laterValue;
+                    break;
+                case "÷":
+                    if (laterValue != 0)
+                    {
+                        result = previousValue / laterValue;
+                    }
+                    break;
+                case "%":
+                    result = previousValue % laterValue;
+                    break;
             }
             ChaningResult();
         }
 
         private void ButtonOperating_Click(object sender, EventArgs e)
         {
+
             PerformCalculation();
+
             if (result != 0)
             {
                 previousValue = result;
             }
             else
             {
-                previousValue = Convert.ToSingle(ResultWindow.Text);
+                previousValue = (decimal)Convert.ToSingle(ResultWindow.Text);
             }
 
             ResultWindow.Text = "0";
@@ -142,6 +142,8 @@ namespace KalkulatorWF
             PerformCalculation();
             ResultWindow.Text = result.ToString();
             ChaningResult();
+            previousValue = 0;
+            laterValue = 0;
         }
 
     }
