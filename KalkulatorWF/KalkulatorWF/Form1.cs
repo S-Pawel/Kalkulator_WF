@@ -121,6 +121,7 @@ namespace KalkulatorWF
                     }
                     break;
             }
+            operatingChar = "";
             ChaningResult();
         }
 
